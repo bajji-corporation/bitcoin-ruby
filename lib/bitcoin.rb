@@ -955,7 +955,7 @@ module Bitcoin
     dns_seeds: [
       "jp01.dnsseed.c0ban.com"
     ],
-    genesis_hash: "000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8",
+    genesis_hash: "000000005184ffce04351e687a3965b300ee011d26b2089232cd039273be4a67",
     proof_of_work_limit: 0x1d00ffff,
     known_nodes: [],
     checkpoints: {
@@ -974,6 +974,33 @@ module Bitcoin
       305000 => "0000000000000000142bb90561e1a907d500bf534a6727a63a92af5b6abc6160",
     },
   })
+  NETWORKS[:c0ban_testnet] = NETWORKS[:c0ban].merge({
+    magic_head: "\x83\x80\x82\x8e",
+    address_version: "76",
+    p2sh_version: "c6",
+    privkey_version: "ee",
+    bech32_hrp: nil,
+    default_port: 13881,
+    extended_privkey_version: "04388388",
+    extended_pubkey_version: "04588788",
+    dns_seeds: [],
+    genesis_hash: "000000005184ffce04351e687a3965b300ee011d26b2089232cd039273be4a67",
+    checkpoints: {}
+  })  
+  NETWORKS[:c0ban_regtest] = NETWORKS[:c0ban].merge({
+    magic_head: "\xfa\xbf\xb5\xda",
+    address_version: "6f",
+    p2sh_version: "c4",
+    privkey_version: "ef",
+    bech32_hrp: nil,
+    default_port: 23881,
+    extended_privkey_version: "04358394",
+    extended_pubkey_version: "043587cf",
+    dns_seeds: [],
+    genesis_hash: "3249e44acac8fc67e6b94e882525cea6f5a9853e1ff7b4a1d5f470b23ff8ae11",
+    checkpoints: {}
+  })
+  
   NETWORKS[:namecoin] = NETWORKS[:bitcoin].merge({
       project: :namecoin,
       magic_head: "\xF9\xBE\xB4\xFE",
